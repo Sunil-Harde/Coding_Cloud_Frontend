@@ -1,0 +1,9 @@
+# ✅ 1. General API Proxy (Catches /api/testimonials, /api/course, etc.)
+# This takes "/api/whatever" and sends it to "backend/whatever"
+/api/* https://codingcloud.pythonanywhere.com/:splat  200
+
+# 2. Proxy for Images (Media) - Keep this
+/media/* https://codingcloud.pythonanywhere.com/media/:splat  200
+
+# 3. React Router Support - Keep this at the VERY BOTTOM
+/* /index.html  200
