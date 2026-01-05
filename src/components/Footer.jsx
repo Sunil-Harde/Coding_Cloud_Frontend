@@ -29,7 +29,7 @@ const Footer = () => {
           {/* RIGHT SIDE LINKS CONTAINER (Takes 8/12 columns on large screens) */}
           <div className="lg:col-span-8">
             {/* Nested Grid: Stacks on mobile, 3 columns on tablet+ */}
-            <div className='grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 '>
+            <div className='grid grid-cols-2 sm:grid-cols-3 sm:gap-8 '>
               {/* Column 2: Useful Links */}
               <div className="bg-white">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 md:mb-8">Top Cource</h3>
@@ -62,9 +62,9 @@ const Footer = () => {
               <div className=" mt-10 sm:mt-0 col-span-2 sm:col-span-1  ">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 md:mb-8">Get Contact</h3>
                 <div className="space-y-3 md:space-y-4 text-gray-500 mb-8 font-medium">
-                  <p className="hover:text-[#6A4DF4] cursor-pointer">Phone: 1234567890</p>
-                  <p className="hover:text-[#6A4DF4] cursor-pointer break-all">E-mail: abc@example.com</p>
-                  <p>Location: India</p>
+                  <p className="hover:text-[#6A4DF4] cursor-pointer">Phone: +91 95373 44018</p>
+                  <p className="hover:text-[#6A4DF4] cursor-pointer break-all">E-mail: pune@codingcloudinstitute.com</p>
+                  <p>Location: Office No. 201, 2nd Floor, Polaris Building, Nr. Noble Hospital Hadapsar, Pune, 411028</p>
                 </div>
 
                 {/* Social Icons */}
