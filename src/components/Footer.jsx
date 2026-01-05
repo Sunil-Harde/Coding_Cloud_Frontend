@@ -1,7 +1,37 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaArrowRight } from 'react-icons/fa';
+import { FaFacebookF, FaYoutube, FaInstagram, FaLinkedinIn, FaArrowRight } from 'react-icons/fa';
 import CodingCloud from '../assets/images/logo.png'
 const Footer = () => {
+
+
+  const linkIcon= [
+
+    {
+      id:1,
+      icon: FaFacebookF,
+      link:"https://www.facebook.com/codingcloudinstitute"
+    },
+
+    {
+      id:2,
+      icon: FaYoutube,
+      link:"https://www.youtube.com/@CodingHunt"
+    },
+
+    {
+      id:3,
+      icon:  FaInstagram ,
+      link:"https://www.instagram.com/codingcloud_institute/"
+    },
+
+    {
+      id:4,
+      icon: FaLinkedinIn,
+      link:"https://www.linkedin.com/company/coding-cloud/"
+    }
+
+  ]
+
   return (
     <footer className="bg-white pt-20 pb-10 border-t border-gray-100 font-sans">
       <div className="max-w-7xl mx-auto px-5">
@@ -69,9 +99,9 @@ const Footer = () => {
 
                 {/* Social Icons */}
                 <div className="flex gap-4">
-                  {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map((Icon, index) => (
-                    <a key={index} href="#" className="w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:bg-[#6A4DF4] hover:text-white hover:-translate-y-1 transition-all duration-300">
-                      <Icon />
+                  {linkIcon.map((data, index) => (
+                    <a key={index} href={data.link} target="_blank" className="w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-500 hover:bg-[#6A4DF4] hover:text-white hover:-translate-y-1 transition-all duration-300">
+                      <data.icon />
                     </a>
                   ))}
                 </div>
