@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom"; // Removed 'Navigate' as it conflicts with Home
 import Home from "./pages/Home";
 import Profile from "./pages/profile";
-import Contact from './pages/contact';
-import Instructor from "./pages/instructor";
+import Contact from './pages/Contact';
+import Instructor from "./pages/Instructor";
 import Teachers from "./pages/Teachers";
 import BlogDetails from "./pages/BlogDetails";
-import FAQsPage from "./pages/faqs";
+import FAQsPage from "./pages/Faqs";
 import PrivacyPolicyPage from "./pages/Privacy";
 import AdmissionGuide from "./pages/AdmissionGuide";
 import About from "./pages/About";
@@ -21,7 +21,7 @@ import CourseDetails from "./pages/CourseDetails ";
 // 2. IMPORT YOUR SMART COMPONENT
 // (Make sure this path is correct based on where you saved CourseCard.jsx)
 import CourseCard from "./components/CourseCard"; 
-import Courses from "./pages/courses";
+import Courses from "./pages/Courses";
 
 function App() {
   return (

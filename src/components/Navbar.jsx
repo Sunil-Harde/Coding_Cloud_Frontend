@@ -8,9 +8,9 @@ import {
   FaChevronUp, FaSearch, FaBars, FaTimes,
   FaPython, FaJava, FaReact, FaNodeJs, FaAndroid, FaAws, FaPhp, FaCheckCircle
 } from "react-icons/fa";
-import { 
-  SiDjango, SiJavascript, SiFlutter, SiHtml5, SiC, SiMysql, SiCplusplus 
-} from "react-icons/si"; 
+import {
+  SiDjango, SiJavascript, SiFlutter, SiHtml5, SiC, SiMysql, SiCplusplus
+} from "react-icons/si";
 import { TbBrandCpp } from "react-icons/tb";
 import { IoCallOutline } from "react-icons/io5";
 import { CiShoppingCart } from "react-icons/ci";
@@ -30,15 +30,15 @@ const getCourseIcon = (courseName) => {
   if (lowerName.includes("data science")) return <MdOutlineScience className="text-blue-400 text-2xl" />;
   if (lowerName.includes("data analytics")) return <BsGraphUp className="text-yellow-600 text-xl" />;
   if (lowerName.includes("testing")) return <FaCheckCircle className="text-red-500 text-xl" />;
-  
+
   // Web & Mobile
   if (lowerName.includes("javascript")) return <SiJavascript className="text-yellow-400 text-xl" />;
   if (lowerName.includes("react")) return <FaReact className="text-blue-400 text-2xl" />;
   if (lowerName.includes("node")) return <FaNodeJs className="text-green-600 text-2xl" />;
-  if (lowerName.includes("mern")) return <div className="flex text-xs"><FaReact className="text-blue-400"/><FaNodeJs className="text-green-500"/></div>;
+  if (lowerName.includes("mern")) return <div className="flex text-xs"><FaReact className="text-blue-400" /><FaNodeJs className="text-green-500" /></div>;
   if (lowerName.includes("android")) return <FaAndroid className="text-green-500 text-2xl" />;
   if (lowerName.includes("flutter")) return <SiFlutter className="text-blue-400 text-xl" />;
-  
+
   // Programming Languages
   if (lowerName.includes("c++")) return <TbBrandCpp className="text-blue-700 text-2xl" />;
   if (lowerName.includes("c programming")) return <SiC className="text-blue-500 text-2xl" />;
@@ -53,7 +53,7 @@ const getCourseIcon = (courseName) => {
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState("");
-  const [courses, setCourses] = useState([]); 
+  const [courses, setCourses] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function Navbar() {
         const response = await fetch(API.COURSES.LIST);
         if (!response.ok) throw new Error('Failed to fetch courses');
         const data = await response.json();
-        setCourses(data); 
+        setCourses(data);
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
@@ -80,7 +80,7 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-[999] bg-white shadow-sm font-sans">
-      
+
       {/* TOP BAR */}
       <div className="hidden lg:flex h-12 bg-[#1a1a2e] text-gray-400 text-sm justify-between items-center px-6 transition-colors duration-300">
         <ul className="flex items-center gap-6">
@@ -101,7 +101,7 @@ function Navbar() {
       <nav className="relative border-b border-gray-100">
         {/* ✅ 1. ADDED 'relative' TO THIS CONTAINER */}
         <div className="container mx-auto px-4 lg:px-6 h-20 flex items-center justify-between relative">
-          
+
           <div className="flex items-center gap-8">
             <Link to="/" className="flex-shrink-0"><img src={logo} alt="Histudy" className="h-8 md:h-10 w-auto" /></Link>
           </div>
@@ -117,15 +117,15 @@ function Navbar() {
                 <span className="flex items-center gap-1 hover:text-blue-600 transition">
                   Courses <FaChevronUp size={10} className="group-hover:rotate-180 transition-transform duration-300" />
                 </span>
-                
+
                 {/* ✅ 3. CHANGED WIDTH TO 'w-full' AND REMOVED NEGATIVE MARGIN */}
                 <div className="absolute top-full left-0 w-full bg-white shadow-2xl rounded-b-xl border-t border-gray-100 opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 p-8">
                   {/* Grid System (Increased to 4 columns for full width look) */}
                   <div className="grid grid-cols-4 gap-y-4 gap-x-8">
                     {courses.map((course) => (
-                      <Link 
-                        key={course.id} 
-                        to={`/course/${course.id}`} 
+                      <Link
+                        key={course.id}
+                        to={`/course/${course.id}`}
                         className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item"
                       >
                         <div className="w-10 h-10 flex items-center justify-center bg-gray-50 rounded-full group-hover/item:bg-white group-hover/item:shadow-md transition-all shrink-0">
@@ -143,8 +143,13 @@ function Navbar() {
 
               <li className="relative group py-6 cursor-pointer hover:text-blue-600">Juniors</li>
               <li className="relative group py-6 cursor-pointer hover:text-blue-600">Internship</li>
-              <li className="relative group py-6 cursor-pointer hover:text-blue-600">About Us</li>
-              <li className="relative group py-6 cursor-pointer hover:text-blue-600">Contact Us</li>
+              <li className="relative group py-6 cursor-pointer hover:text-blue-600">
+                <Link to="/about">About Us</Link>
+              </li>
+
+              <li className="relative group py-6 cursor-pointer hover:text-blue-600">
+                <Link to="/contact">contact Us</Link>
+              </li>
             </ul>
 
             <div className="flex items-center gap-6">
@@ -167,7 +172,7 @@ function Navbar() {
         {/* MOBILE MENU */}
         <div className={`lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl overflow-hidden transition-all duration-500 ease-in-out z-50 ${isMenuOpen ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="flex flex-col p-6 space-y-2 overflow-y-auto max-h-[80vh]">
-            
+
             <div className="relative mb-4">
               <input type="text" placeholder="Search courses..." className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 pl-10 text-sm outline-none focus:border-blue-500 transition" />
               <FaSearch className="absolute left-3 top-3.5 text-gray-400" />
@@ -182,21 +187,21 @@ function Navbar() {
               <div className={`overflow-hidden transition-all duration-300 ${mobileSubMenu === 'courses' ? 'max-h-96 mb-3' : 'max-h-0'}`}>
                 <div className="pl-4 flex flex-col space-y-2 text-sm text-gray-600">
                   {courses.map((course) => (
-                    <Link 
-                      key={course.id} 
-                      to={`/course/${course.id}`} 
+                    <Link
+                      key={course.id}
+                      to={`/course/${course.id}`}
                       className="hover:text-blue-600 py-1 flex items-center gap-2"
                     >
-                       <span className="text-xs opacity-70">{getCourseIcon(course.name)}</span> {course.name}
+                      <span className="text-xs opacity-70">{getCourseIcon(course.name)}</span> {course.name}
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
-             
-             <Link to="/contact" className="font-bold text-gray-800 py-3 border-b border-gray-50 hover:text-blue-600">Contact Us</Link>
-             
-             <div className="pt-4 flex flex-col gap-3">
+
+            <Link to="/contact" className="font-bold text-gray-800 py-3 border-b border-gray-50 hover:text-blue-600">Contact Us</Link>
+
+            <div className="pt-4 flex flex-col gap-3">
               <button className="bg-blue-600 text-white w-full py-3.5 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200">Enroll Now</button>
             </div>
           </div>

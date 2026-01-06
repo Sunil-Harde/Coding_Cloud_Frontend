@@ -45,7 +45,7 @@ const Contact = () => {
               Contact Us
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Histudy Course Contact <br className="hidden md:block" /> can join with us.
+              Coding Cloud Course Contact <br className="hidden md:block" /> can join with us.
             </h2>
           </div>
 
@@ -64,7 +64,7 @@ const Contact = () => {
                       href="tel:+444555666777" 
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
-                      +444 555 666 777
+                      +91 9537344018
                     </a>
                   </p>
                   <p>
@@ -72,7 +72,7 @@ const Contact = () => {
                       href="tel:+222222222333" 
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
-                      +222 222 222 333
+                      +91 9558216969 
                     </a>
                   </p>
                 </div>
@@ -92,7 +92,7 @@ const Contact = () => {
                       href="mailto:admin@gmail.com" 
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
-                      admin@gmail.com
+                      info@codingcloudinstitute.com
                     </a>
                   </p>
                   <p>
@@ -100,7 +100,7 @@ const Contact = () => {
                       href="mailto:example@gmail.com" 
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
-                      example@gmail.com
+                      
                     </a>
                   </p>
                 </div>
@@ -115,8 +115,8 @@ const Contact = () => {
                 </div>
                 <h4 className="text-xl font-bold text-gray-900 mb-4">Our Location</h4>
                 <p className="text-gray-600">
-                  5678 Bangla Main Road, cities 580 <br />
-                  GBnagla, example 54786
+                  Unit No, 201, 2nd Floor, Polaris, Near Noble Hospital, Hadapsar, Pune, Maharashtra
+411060
                 </p>
               </div>
             </div>
