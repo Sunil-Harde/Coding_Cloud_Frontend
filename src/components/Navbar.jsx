@@ -148,7 +148,7 @@ function Navbar() {
               </li>
 
               <li className="relative group py-6 cursor-pointer hover:text-blue-600">
-                <Link to="/contact">contact Us</Link>
+                <Link to="/contact">Contact Us</Link>
               </li>
             </ul>
 
