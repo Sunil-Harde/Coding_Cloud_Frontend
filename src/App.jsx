@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"; // Removed 'Navigate' as it conflicts with Home
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Contact from './pages/Contact';
+import Contact from './pages/Contacts';
 import Instructor from "./pages/Instructor";
 import Teachers from "./pages/Teachers";
 import BlogDetails from "./pages/BlogDetails";
