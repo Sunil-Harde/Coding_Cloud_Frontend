@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaHeadphones, FaEnvelope, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import TestimonialSection from '../components/TestimonialSection';
 
 const Contacts = () => {
   const [formData, setFormData] = useState({

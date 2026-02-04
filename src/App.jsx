@@ -16,22 +16,22 @@ import Register from "./pages/Register";
 import AllBlogs from "./pages/AllBlogs";
 
 // 1. FIX TYPO: Removed space at the 
-import CourseDetails from "./pages/CourseDetails"; 
+import CourseDetails from "./pages/CourseDetails";
 
 // 2. IMPORT YOUR SMART COMPONENT
 // (Make sure this path is correct based on where you saved CourseCard.jsx)
-import CourseCard from "./components/CourseCard"; 
+import CourseCard from "./components/CourseCard";
 import Courses from "./pages/Courses";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      
+
       {/* 3. REUSE THE SAME COMPONENT FOR BOTH ROUTES */}
       {/* Show All Courses */}
       <Route path="/courses" element={<Courses />} />
-      
+
       {/* Show Filtered Courses (Note: :categoryId matches useParams in CourseCard) */}
       <Route path="/category/:categoryId" element={<CourseCard />} />
 

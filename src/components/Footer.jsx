@@ -1,33 +1,57 @@
 import React from 'react';
 import { FaFacebookF, FaYoutube, FaInstagram, FaLinkedinIn, FaArrowRight } from 'react-icons/fa';
 import CodingCloud from '../assets/images/logo.png'
+import { Link } from 'react-router-dom'
+
+
 const Footer = () => {
 
+  const our = [
+    {
+      id: 1,
+      name: 'Contact Us',
+      link: "/contact"
 
-  const linkIcon= [
+    },
 
     {
-      id:1,
+      id: 2,
+      name: 'Become Teacher',
+      link: "#"
+
+    },
+
+    {
+      id: 3,
+      name: 'Blog',
+      link: "#"
+
+    },]
+
+  const linkIcon = [
+
+    {
+      id: 1,
       icon: FaFacebookF,
-      link:"https://www.facebook.com/codingcloudinstitute"
+      link: "https://www.facebook.com/codingcloudinstitute"
     },
 
     {
-      id:2,
+      id: 2,
       icon: FaYoutube,
-      link:"https://www.youtube.com/@CodingHunt"
+      link: "https://www.youtube.com/@CodingHunt"
     },
 
     {
-      id:3,
-      icon:  FaInstagram ,
-      link:"https://www.instagram.com/codingcloud_institute/"
+      id: 3,
+      icon: FaInstagram,
+      link: "https://www.instagram.com/codingcloud_institute/"
     },
 
     {
-      id:4,
+      id: 4,
       icon: FaLinkedinIn,
-      link:"https://www.linkedin.com/company/coding-cloud/"
+      link: "https://www.linkedin.com/company/coding-cloud/"
     }
 
   ]
@@ -78,13 +102,17 @@ const Footer = () => {
               <div className="bg-white">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 md:mb-8">Our Company</h3>
                 <ul className="space-y-3 md:space-y-4 text-gray-500 font-medium">
-                  {['Contact Us', 'Become Teacher', 'Blog'].map((item) => (
-                    <li key={item}>
-                      <a href="#" className="hover:text-[#6A4DF4] hover:pl-2 transition-all duration-300 block w-fit">
-                        {item}
-                      </a>
+                  {our.map((item) => (
+                    <li key={item.id}>
+                      <Link  to={item.link} className="hover:text-[#6A4DF4] hover:pl-2 transition-all duration-300 block w-fit">
+                        {item.name}
+                      </Link>
                     </li>
                   ))}
+
+                  {/* <li><Link to="/contact">Contact US</Link></li>
+                  <li><Link to="">Become Teacher</Link></li>
+                  <li><Link to="">Blog</Link></li> */}
                 </ul>
               </div>
 

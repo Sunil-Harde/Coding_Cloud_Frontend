@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  FaUserGraduate, FaLaptopCode, FaAward, FaUsers, FaArrowRight, FaArrowLeft, 
+  FaUserGraduate, FaLaptopCode, FaAward, FaUsers, FaArrowRight, FaArrowLeft,
   FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaPlay
 } from 'react-icons/fa';
 import { CiHeart } from "react-icons/ci";
@@ -18,7 +18,7 @@ import Categories from "../components/Categories"
 import { API, BASE_URL } from '../api/endpoints';
 
 // IMPORT THE NEW COMPONENT
-import TestimonialsSection from '../components/TestimonialsSection'; 
+import TestimonialSection from '../components/TestimonialSection';
 
 
 // ==========================================
@@ -245,14 +245,14 @@ function Home() {
     { icon: <FaUsers className="text-pink-500 text-3xl" />, number: "100+", label: "Registered Enrolls", hasGradient: true },
   ];
 
-  
+
 
   return (
     <div className='bg-white min-h-screen'>
       <Navbar />
 
       {/* --- HERO SECTION --- */}
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 flex items-center justify-center p-4 overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 flex items-center justify-center p-4  overflow-hidden">
         <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
           <div className="lg:col-span-4 mb-10 flex flex-col lg:items-start z-10 space-y-6 justify-center lg:justify-start items-center ">
             <div className="bg-white px-4 py-2 rounded shadow-sm flex items-center gap-2 text-sm font-bold text-gray-700 border border-gray-100"><span className="text-yellow-500 text-lg">🏆</span> The Leader in Online Learning</div>
@@ -272,8 +272,8 @@ function Home() {
 
       {/* --- CATEGORIES SECTION --- */}
 
-      <Categories/>
-     
+      <Categories />
+
 
       {/* --- KNOW ABOUT US --- */}
       <div className='w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 mb-30 mt-20'>
@@ -322,7 +322,16 @@ function Home() {
       </section>
 
       {/* --- TESTIMONIALS --- */}
-      <TestimonialsSection /> 
+
+      <section className="py-24 bg-white overflow-hidden relative border-t-4 border-blue-500">
+
+        <div className="max-w-7xl mx-auto px-5 text-center mb-16">
+          <span className="inline-block px-4 py-1 mb-5 text-sm font-semibold text-blue-600 bg-blue-100 rounded-full uppercase tracking-wider">EDUCATION FOR EVERYONE</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">People like Coding Cloud education.
+            <br />No joking - here’s the proof!</h2>
+        </div>
+        <TestimonialSection />
+      </section>
 
       {/* --- UPCOMING EVENTS --- */}
       <section className="py-24 bg-gradient-to-r from-[#6A4DF4] to-[#A088F8]">

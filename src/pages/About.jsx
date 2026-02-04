@@ -10,13 +10,14 @@ import TestimonialSection from '../components/TestimonialSection';
 import NewsletterSection from '../components/NewsletterSection';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-
+import { Link } from 'react-router-dom'
 
 const AboutHeroImage = "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
 
 const About = () => {
 
+  
   const aboutData = {
     badge: "KNOW ABOUT US",
     title: <>We develops skills in youngsters & became the reason for success</>,
@@ -28,35 +29,23 @@ const About = () => {
     ]
   };
 
-  // --- DATA FOR SCROLLING SECTION ---
-  const AboutsRow1 = [
-    { id: 1, company: "Google", logo: <FaGoogle className="text-4xl text-red-500" />, text: "The platform is intuitive.", author: "Michael D.", role: "CEO", img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100", variant: "white" },
-    { id: 2, company: "Yelp", logo: <FaYelp className="text-4xl text-white" />, text: "Strong foundation.", author: "Valerie J.", role: "Manager", img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100", variant: "color" },
-    { id: 3, company: "Facebook", logo: <FaFacebookF className="text-4xl text-blue-600" />, text: "Global learners.", author: "Hannah R.", role: "Director", img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100", variant: "white" },
-    { id: 4, company: "Microsoft", logo: <FaMicrosoft className="text-4xl text-white" />, text: "Scalable solutions.", author: "James T.", role: "CTO", img: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100", variant: "color" },
-  ];
-
-  const AboutsRow2 = [
-    { id: 5, company: "HubSpot", logo: <FaHubspot className="text-4xl text-orange-500" />, text: "Marketing strategies.", author: "Pearl B. Hill", role: "Marketing", img: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=100", variant: "white" },
-    { id: 6, company: "Bing", logo: <span className="text-4xl font-bold text-white italic">Bing</span>, text: "Search no further.", author: "Martha S.", role: "Developer", img: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100", variant: "color" },
-    { id: 7, company: "Google", logo: <FaGoogle className="text-4xl text-red-500" />, text: "Repeating success.", author: "Robert L.", role: "Analyst", img: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=100", variant: "white" },
-    { id: 8, company: "Yelp", logo: <FaYelp className="text-4xl text-white" />, text: "Five stars.", author: "Sarah K.", role: "Designer", img: "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=100", variant: "color" },
-  ];
+ 
 
   return (
     <div className="about-page ">
       <Navbar />
+      
       {/* --- HERO SECTION --- */}
       <div className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${AboutHeroImage})` }}></div>
         <div className="absolute inset-0 bg-[#0e1133]/70"></div>
-        <div className="relative z-10 text-center px-2 max-w-7xl mx-auto text-white flex flex-col items-center">
-          <span className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-widest uppercase bg-white/10 rounded px-3 py-1 text-orange-500 backdrop-blur-sm">HOW WE WORK</span>
+        <div className="relative mb-20 z-10 text-center px-2 max-w-7xl mx-auto text-white flex flex-col items-center">
+          <span className="inline-block px-4 py-1 mb-6 text-xl md:text-3xl lg:text-4xl  font-bold tracking-widest uppercase bg-white/10 rounded px-3 py-1 text-white backdrop-blur-sm">Coding <span className="text-blue-500">Cloud</span></span>
           <h1 className="text-xl md:text-5xl lg:text-5xl font-extrabold leading-tight mb-8 drop-shadow-lg">
-            Take Challenge for Build Your Life.<br className="hidden md:block" />
-            The World Most Lessons for Back to Your Life.
+            {/* <br className="hidden md:block" /> */}
+            Your Door To The Future.
           </h1>
-          <button className="custom-btn">More About Us <span>→</span></button>
+          {/* <button className="custom-btn">More About Us <span>→</span></button> */}
         </div>
       </div>
 
@@ -106,15 +95,10 @@ const About = () => {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae consectetur adipisicing elit. Repudiandae </p>
           </div>
 
-          <button className='custom-btn'>Contact Us</button>
+          <Link to="/contact"><button className='custom-btn'> Link</button></Link>
 
         </div>
-        <TestimonialSection
-          // subTitle="OUR REPUTATION"
-          // title="What our partners say about us"
-          row1={AboutsRow1}
-          row2={AboutsRow2}
-        />
+        <TestimonialSection/>
       </div>
 
 
