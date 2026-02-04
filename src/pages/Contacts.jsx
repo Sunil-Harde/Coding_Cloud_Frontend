@@ -3,7 +3,7 @@ import { FaHeadphones, FaEnvelope, FaMapMarkerAlt, FaArrowRight } from 'react-ic
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const Contact = () => {
+const Contacts = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -256,4 +256,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contacts;

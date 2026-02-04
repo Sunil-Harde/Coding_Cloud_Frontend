@@ -5,7 +5,7 @@ import Contact from './pages/Contacts';
 import Instructor from "./pages/Instructor";
 import Teachers from "./pages/Teachers";
 import BlogDetails from "./pages/BlogDetails";
-import FAQsPage from "./pages/Faqs";
+import FAQsPage from "./pages/FAQsPage";
 import PrivacyPolicyPage from "./pages/Privacy";
 import AdmissionGuide from "./pages/AdmissionGuide";
 import About from "./pages/About";
