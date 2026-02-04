@@ -34,10 +34,12 @@ export default function CourseDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
-  const [reviews, setReviews] = useState([]); // ✅ State for Reviews
+  const [reviews, setReviews] = useState([]);
+  const [faqs, setFaqs] = useState([]); // ✅ State for FAQs
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
   const [openSection, setOpenSection] = useState(0);
+  const [openFaq, setOpenFaq] = useState(null); // State for open FAQ accordion
 
   // Refs for sections
   const overviewRef = useRef(null);
@@ -45,6 +47,7 @@ export default function CourseDetails() {
   const contentRef = useRef(null);
   const instructorRef = useRef(null);
   const reviewsRef = useRef(null);
+  const faqRef = useRef(null); // Ref for FAQ section
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,16 +60,44 @@ export default function CourseDetails() {
         const courseData = await courseRes.json();
         setCourse(courseData);
 
-        // 2. Fetch Reviews (Testimonials)
-        // Note: Ideally, you filter these by course ID on the backend. 
-        // For now, we fetch all and display them.
+        // 2. Fetch Reviews
         const reviewsUrl = `${BASE_URL}${API.TESTIMONIALS.LIST}`;
         const reviewsRes = await fetch(reviewsUrl);
         const reviewsData = await reviewsRes.json();
-
-        // Check if data is array or wrapped in result object
         const reviewsList = Array.isArray(reviewsData) ? reviewsData : (reviewsData.data || []);
         setReviews(reviewsList);
+
+        // 3. Fetch FAQs (With Debugging)
+        const faqsUrl = `${BASE_URL}${API.FAQS.LIST}`;
+        console.log("Fetching FAQs from:", faqsUrl);
+
+        const faqsRes = await fetch(faqsUrl);
+        const faqsData = await faqsRes.json();
+
+        console.log("All FAQs from API:", faqsData); // 🔍 DEBUG: Check this in Console
+
+        // Handle different API formats (Array vs Object)
+        let allFaqs = [];
+        if (Array.isArray(faqsData)) {
+          allFaqs = faqsData;
+        } else if (faqsData.results) {
+          allFaqs = faqsData.results;
+        } else if (faqsData.data) {
+          allFaqs = faqsData.data;
+        }
+
+        // Filter FAQs for THIS specific course
+        console.log(`Filtering for Course ID: ${id}`);
+
+        // Ensure we compare numbers to numbers
+        const currentCourseId = parseInt(id);
+        const filteredFaqs = allFaqs.filter(faq => {
+          // Check if faq.course exists and matches
+          return faq.course === currentCourseId;
+        });
+
+        console.log("Filtered FAQs:", filteredFaqs); // 🔍 DEBUG: Should not be empty
+        setFaqs(filteredFaqs);
 
         setLoading(false);
       } catch (error) {
@@ -74,7 +105,10 @@ export default function CourseDetails() {
         setLoading(false);
       }
     };
-    fetchData();
+
+    if (id) {
+      fetchData();
+    }
   }, [id]);
 
   // Scroll Function
@@ -88,6 +122,7 @@ export default function CourseDetails() {
       case 'content': targetRef = contentRef; break;
       case 'instructor': targetRef = instructorRef; break;
       case 'reviews': targetRef = reviewsRef; break;
+      case 'Faq': targetRef = faqRef; break; // Add case for FAQ
       default: targetRef = overviewRef;
     }
 
@@ -106,6 +141,11 @@ export default function CourseDetails() {
     if (!imgUrl) return "https://ui-avatars.com/api/?name=User&background=random";
     if (imgUrl.startsWith("http")) return imgUrl;
     return `${BASE_URL}${imgUrl}`; // Handle relative paths
+  };
+
+  // Toggle FAQ accordion
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
   };
 
   if (loading) return <Spinner />;
@@ -178,10 +218,10 @@ export default function CourseDetails() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
             {/* --- LEFT COLUMN: PRICING CARD --- */}
-            <div className="lg:col-span-1 h-fit sticky top-32">
+            <div className="lg:col-span-1 h-fit sticky top-32 ">
               <div className="bg-white rounded-xl shadow-[0_5px_30px_rgba(0,0,0,0.08)] border border-blue-100 p-6">
 
-                <div className="mb-6">
+                <div className="mb-6 mt-10">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl font-extrabold text-[#1a1a2e]">{course.price ? `$${course.price}` : "Free"}</span>
                     {course.price && <span className="text-gray-400 line-through text-lg font-medium">${originalPrice}</span>}
@@ -237,16 +277,17 @@ export default function CourseDetails() {
                 {[
                   { id: 'overview', label: 'Overview' },
                   { id: 'Detail', label: 'Detail' },
+                  { id: 'Faq', label: 'Faq' },
                   { id: 'content', label: 'Course Content' },
-                  { id: 'instructor', label: 'Instructor' },
-                  { id: 'reviews', label: 'Reviews' }
+                  // { id: 'instructor', label: 'Instructor' },
+                  { id: 'reviews', label: 'Reviews' },
                 ].map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => scrollToSection(tab.id)}
                     className={`px-5 py-2 text-sm font-bold rounded-full transition-all border ${activeTab === tab.id
-                        ? 'bg-[#4F5DE4] text-white border-[#4F5DE4] shadow-md'
-                        : 'bg-white text-gray-600 border-transparent hover:bg-gray-100'
+                      ? 'bg-[#4F5DE4] text-white border-[#4F5DE4] shadow-md'
+                      : 'bg-white text-gray-600 border-transparent hover:bg-gray-100'
                       }`}
                   >
                     {tab.label}
@@ -285,8 +326,48 @@ export default function CourseDetails() {
 
                 <hr className="border-gray-100" />
 
+
+
+                {/* FAQ SECTION (DYNAMIC) */}
+                <div id="Faq" ref={faqRef} className="animate-fadeIn">
+                  {/* <h3 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3> */}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Course Content</h3>
+
+                  <div className="space-y-4">
+                    {faqs.length > 0 ? (
+                      faqs.map((faq, index) => (
+                        <div key={faq.id} className="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                          <button
+                            onClick={() => toggleFaq(index)}
+                            className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-gray-50 transition-colors focus:outline-none"
+                          >
+                            <span className="text-lg font-bold text-gray-800">{faq.question}</span>
+                            {openFaq === index ? (
+                              <FaChevronUp className="text-[#4F5DE4] flex-shrink-0 ml-4" />
+                            ) : (
+                              <FaChevronDown className="text-gray-400 flex-shrink-0 ml-4" />
+                            )}
+                          </button>
+                          {openFaq === index && (
+                            <div className="px-6 pb-6 pt-2 text-gray-600 text-sm leading-relaxed border-t border-gray-100">
+                              {faq.answer.split('\n').map((line, i) => (
+                                <p key={i} className="mb-2 last:mb-0">{line}</p>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-gray-500 text-center py-4">No FAQs available for this course.</p>
+                    )}
+                  </div>
+                </div>
+
+
+                <hr className="border-gray-100" />
+
                 {/* CONTENT */}
-                <div id="content" ref={contentRef} className="animate-fadeIn">
+                {/* <div id="content" ref={contentRef} className="animate-fadeIn">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Course Content</h3>
                   <div className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
                     {['Intro to Course', 'Course Fundamentals', 'Advanced Concepts'].map((sectionTitle, index) => (
@@ -328,24 +409,7 @@ export default function CourseDetails() {
                       </div>
                     ))}
                   </div>
-                </div>
-
-                <hr className="border-gray-100" />
-
-                {/* INSTRUCTOR */}
-                <div id="instructor" ref={instructorRef} className="animate-fadeIn">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Instructor</h3>
-                  <div className="flex flex-col sm:flex-row gap-6 items-start bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                    <img src={course.image || "https://ui-avatars.com/api/?name=Instructor"} alt="Instructor" className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-sm" />
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold text-gray-900">{course.instructor || "Unknown"}</h4>
-                      <p className="text-[#4F5DE4] text-sm font-bold uppercase tracking-wide mb-3">Senior Software Engineer</p>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                        Passionate about teaching and helping students achieve their goals. With over 10 years of experience in the industry.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                </div> */}
 
                 <hr className="border-gray-100" />
 
@@ -393,6 +457,9 @@ export default function CourseDetails() {
                     )}
                   </div>
                 </div>
+
+                <hr className="border-gray-100" />
+
 
               </div>
             </div>

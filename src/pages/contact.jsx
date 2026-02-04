@@ -33,7 +33,7 @@ const Contact = () => {
     <div className="min-h-screen bg-gray-50">
       {/* ============================================ */}
       {/* ADD NAVBAR COMPONENT HERE */}
-         <Navbar />
+      <Navbar />
       {/* ============================================ */}
 
       {/* Contact Info Section */}
@@ -45,7 +45,7 @@ const Contact = () => {
               Contact Us
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Coding Cloud Course Contact <br className="hidden md:block" /> can join with us.
+              Reach Our Training Center <br className="hidden md:block" />
             </h2>
           </div>
 
@@ -60,19 +60,19 @@ const Contact = () => {
                 <h4 className="text-xl font-bold text-gray-900 mb-4">Contact Phone Number</h4>
                 <div className="space-y-2">
                   <p>
-                    <a 
-                      href="tel:+444555666777" 
+                    <a
+                      href="tel:+444555666777"
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
                       +91 9537344018
                     </a>
                   </p>
                   <p>
-                    <a 
-                      href="tel:+222222222333" 
+                    <a
+                      href="tel:+222222222333"
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
-                      +91 9558216969 
+                      +91 9558216969
                     </a>
                   </p>
                 </div>
@@ -88,19 +88,19 @@ const Contact = () => {
                 <h4 className="text-xl font-bold text-gray-900 mb-4">Our Email Address</h4>
                 <div className="space-y-2">
                   <p>
-                    <a 
-                      href="mailto:admin@gmail.com" 
+                    <a
+                      href="mailto:admin@gmail.com"
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
                       info@codingcloudinstitute.com
                     </a>
                   </p>
                   <p>
-                    <a 
-                      href="mailto:example@gmail.com" 
+                    <a
+                      href="mailto:example@gmail.com"
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
-                      
+
                     </a>
                   </p>
                 </div>
@@ -116,7 +116,7 @@ const Contact = () => {
                 <h4 className="text-xl font-bold text-gray-900 mb-4">Our Location</h4>
                 <p className="text-gray-600">
                   Unit No, 201, 2nd Floor, Polaris, Near Noble Hospital, Hadapsar, Pune, Maharashtra
-411060
+                  411060
                 </p>
               </div>
             </div>
@@ -131,9 +131,9 @@ const Contact = () => {
             {/* Image */}
             <div className="order-2 lg:order-1">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.pexels.com/photos/5940721/pexels-photo-5940721.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Contact" 
+                <img
+                  src="https://images.pexels.com/photos/5940721/pexels-photo-5940721.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Contact"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -147,7 +147,7 @@ const Contact = () => {
                     EDUCATION FOR EVERYONE
                   </span>
                   <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                    Get a Free Course You Can Contact With Me
+                    Start Your Learning Journey
                   </h3>
                 </div>
 
@@ -235,21 +235,22 @@ const Contact = () => {
       <div className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl overflow-hidden shadow-2xl">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319" 
-              className="w-full h-[600px]" 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.061722436393!2d73.92283987397265!3d18.505634769632717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ebbf356e2f3f%3A0x4ef27a8683922201!2sCoding%20Cloud%20Institute%20%7C%20Data%20Science%20%2C%20Data%20Analyst%20%2CMern%20Stack%20%2CJava%20%2C%20Python%2CAWS%20%2C%20React%20js%20%2CTraining%20Institute%20in%20Pune!5e1!3m2!1sen!2sin!4v1769769830256!5m2!1sen!2sin"
+              className="w-full h-[600px]"
               style={{ border: 0 }}
-              allowFullScreen="" 
+              allowFullScreen=""
               loading="lazy"
               title="Google Maps Location"
             ></iframe>
+
           </div>
         </div>
       </div>
 
       {/* ============================================ */}
       {/* ADD FOOTER COMPONENT HERE */}
-          <Footer />
+      <Footer />
       {/* ============================================ */}
     </div>
   );

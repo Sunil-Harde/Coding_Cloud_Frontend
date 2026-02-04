@@ -24,7 +24,7 @@ const KnowAboutUs = ({ data }) => {
                     <img
                         src="https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg?auto=compress&cs=tinysrgb&w=600"
                         alt="img1"
-                        className="absolute top-20 left-0 w-[55%] h-[75%] object-cover rounded-xl z-0"
+                        className="absolute top-0 left-0 w-[55%] h-[75%] object-cover rounded-xl z-0"
                         style={{
                             transform: `translateY(${offset * -0.03}px)`,
                             transition: "transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)" // Super Soft Transition
@@ -35,7 +35,7 @@ const KnowAboutUs = ({ data }) => {
                     <img
                         src="https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=600"
                         alt="img2"
-                        className="absolute -top-30 right-0 w-[50%] h-[45%] object-cover rounded-xl z-10 "
+                        className="absolute -top-40 right-0 w-[50%] h-[55%] object-cover rounded-xl z-10 "
                         style={{
                             transform: `translateY(${offset * 0.03}px)`,
                             transition: "transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)" // Super Soft Transition
@@ -46,7 +46,7 @@ const KnowAboutUs = ({ data }) => {
                     <img
                         src="https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=600"
                         alt="img3"
-                        className="absolute bottom-15 right-[9%] w-[50%] h-[65%] object-cover rounded-xl z-20"
+                        className="absolute -bottom-10 right-[9%] w-[50%] h-[75%] object-cover rounded-xl z-20"
                         style={{
                             transform: `translateY(${offset * 0.05}px)`,
                             transition: "transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)"

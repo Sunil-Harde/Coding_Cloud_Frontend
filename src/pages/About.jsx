@@ -14,62 +14,13 @@ import Footer from '../components/Footer'
 
 const AboutHeroImage = "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
-// 1. Data Structure matching the image
-const teamMembers = [
-  {
-    id: 1,
-    name: "Alejandro",
-    role: "Math Teacher",
-    location: "CO Miego, AD, USA",
-    // Placeholder image resembling the first person
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 2,
-    name: "John Due",
-    role: "Department Head",
-    location: "CO Miego, AD, USA",
-    // Placeholder image resembling the second person
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 3,
-    name: "Joo Bieden",
-    role: "Math Teacher",
-    location: "CO Miego, AD, USA",
-    // Placeholder image resembling the third person
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  }, {
-    id: 4,
-    name: "Alejandro",
-    role: "Math Teacher",
-    location: "CO Miego, AD, USA",
-    // Placeholder image resembling the first person
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 5,
-    name: "John Due",
-    role: "Department Head",
-    location: "CO Miego, AD, USA",
-    // Placeholder image resembling the second person
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 6,
-    name: "Joo Bieden",
-    role: "Math Teacher",
-    location: "CO Miego, AD, USA",
-    // Placeholder image resembling the third person
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-];
+
 const About = () => {
 
   const aboutData = {
     badge: "KNOW ABOUT US",
-    title: <>Know About Histudy <br /> Learning Platform</>,
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    title: <>We develops skills in youngsters & became the reason for success</>,
+    desc: "We are one of the most reputed Training institutes in Ahmedabad, Pune & Navi Mumbai. We are providing, Live Project Training in All Programming Languages C, PHP, Java, Android, Python, Data Science, Software Testing, & Graphic Designing. We are Providing Training classes in with Live Projects. We have a team professional Trainers , mentors and industry experts who Continuously struggling to survey current market and preparing India’s youth to contribute in the growth of our country. After Training, We provide 100% assured job assistant after the training. Our Goal is “your Career is our Commitment ” . We Have Unlimited Combinations to create Bright Career. Our Culture is “No Theory , No Books”",
     features: [
       { id: 1, title: "Flexible Classes", desc: "Readable content.", icon: <FaHeart className="text-red-500 text-2xl" />, bg: "bg-red-100" },
       { id: 2, title: "Learn From Anywhere", desc: "Recusandae laborum.", icon: <FaBookOpen className="text-blue-600 text-2xl" />, bg: "bg-blue-100" },
@@ -168,9 +119,8 @@ const About = () => {
 
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+        {/* <div className="container mx-auto px-4">
 
-          {/* Header Section */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="inline-block px-4 py-2 mb-4 text-xs font-bold tracking-wider text-red-400 uppercase bg-red-200 rounded-full">
               Skill Teacher
@@ -184,61 +134,13 @@ const About = () => {
               the coast of the Semantics, a large language ocean.
             </p>
           </div>
+        </div> */}
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
-              <div
-                key={member.id}
-                className="group bg-white rounded-lg p-4 transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Image Container */}
-                <div className="aspect-[4/5] overflow-hidden rounded-lg mb-6 bg-gray-100">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+        {/* Cards Grid */}
 
-                {/* Text Content */}
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-purple-600 font-medium mb-3">
-                    {member.role}
-                  </p>
-                  <div className="flex items-center justify-center gap-1 text-gray-400 text-sm font-medium">
-                    {/* SVG Icon Replacement for MapPin */}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-gray-400"
-                    >
-                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    <span>{member.location}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
       </section>
 
-      <section>
-        <NewsletterSection />
-      </section>
+      
       <Footer />
     </div>
   );
