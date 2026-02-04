@@ -15,7 +15,7 @@ import EventDetails from "./pages/EventDetails";
 import Register from "./pages/Register";
 import AllBlogs from "./pages/AllBlogs";
 
-// 1. FIX TYPO: Removed space at the end
+// 1. FIX TYPO: Removed space at the 
 import CourseDetails from "./pages/CourseDetails"; 
 
 // 2. IMPORT YOUR SMART COMPONENT
