@@ -84,9 +84,9 @@ const KnowAboutUs = ({ data }) => {
                         ))}
                     </div>
 
-                    <button className="custom-btn">
+                    {/* <button className="custom-btn">
                         More About Us <FaArrowRight />
-                    </button>
+                    </button> */}
                 </div>
 
             </div>

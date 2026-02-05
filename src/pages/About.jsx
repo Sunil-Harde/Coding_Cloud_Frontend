@@ -17,7 +17,7 @@ const AboutHeroImage = "https://images.pexels.com/photos/3183150/pexels-photo-31
 
 const About = () => {
 
-  
+
   const aboutData = {
     badge: "KNOW ABOUT US",
     title: <>We develops skills in youngsters & became the reason for success</>,
@@ -29,12 +29,12 @@ const About = () => {
     ]
   };
 
- 
+
 
   return (
     <div className="about-page ">
       <Navbar />
-      
+
       {/* --- HERO SECTION --- */}
       <div className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${AboutHeroImage})` }}></div>
@@ -58,14 +58,30 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <span className="inline-block px-4 py-1 mb-4 text-xs font-bold text-blue-600 bg-blue-100 rounded-full uppercase tracking-wider">HOW WE WORK</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a2e] mb-6 leading-tight">Build your Career And <br /> Upgrade Your Life</h2>
-            <p className="text-gray-500 text-lg mb-10 leading-relaxed">Far far away, behind the word mountains...</p>
-            <div className="relative inline-flex items-center gap-3 cursor-pointer group overflow-hidden rounded-full py-3 pr-6 pl-2 transition-all">
-              <span className="absolute top-0 left-0 h-full w-0 rounded-4xl bg-blue-300 group-hover:bg-blue-600 group-hover:w-full w-1/5 transition-all duration-500 ease-out z-0"></span>
-              <div className="absolute left-0 w-12 h-12 bg-blue-200/50 rounded-full -z-10 group-hover:scale-110 transition-transform duration-300"></div>
-              <span className="relative z-10 font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">Learn More About Us</span>
-              <FaArrowRight className="relative z-10 text-gray-800 text-sm group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
-            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a2e] mb-6 leading-tight">Discover yourself with  <br />coding cloud</h2>
+
+            <p className="text-gray-900 text-lg mt-10 font-bold leading-relaxed">For Creative learning</p>
+            <p className="text-gray-500 text-lg mb-5  leading-relaxed">Developing the creative innovators of tomorrow</p>
+
+            <p className="text-gray-900 text-lg  font-bold leading-relaxed">For a better tomorrow</p>
+            <p className="text-gray-500 text-lg mb-5 leading-relaxed">A Success-oriented learning environment.</p>
+
+            <p className="text-gray-900 text-lg  font-bold leading-relaxed">Ignite young minds</p>
+            <p className="text-gray-500 text-lg mb-5 leading-relaxed">Learning to lead with technology</p>
+
+            <p className="text-gray-900 text-lg font-bold leading-relaxed">Technology that inspires</p>
+            <p className="text-gray-500 text-lg mb-10 leading-relaxed">Looking to the future with hope</p>
+
+            <Link to="/contact">
+
+              <div className="relative inline-flex items-center gap-3 cursor-pointer group overflow-hidden rounded-full py-3 pr-6 pl-2 transition-all">
+                <span className="absolute top-0 left-0 h-full w-0 rounded-4xl bg-blue-300 group-hover:bg-blue-600 group-hover:w-full w-1/5 transition-all duration-500 ease-out z-0"></span>
+                <div className="absolute left-0 w-12 h-12 bg-blue-200/50 rounded-full -z-10 group-hover:scale-110 transition-transform duration-300"></div>
+                <span className="relative z-10 font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">Learn More About Us</span>
+                <FaArrowRight className="relative z-10 text-gray-800 text-sm group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+              </div>
+
+            </Link>
           </div>
           <div className="relative rounded overflow-hidden shadow-2xl group cursor-pointer h-[400px] w-full">
             <img src="https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Student Learning" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -95,10 +111,10 @@ const About = () => {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae consectetur adipisicing elit. Repudiandae </p>
           </div>
 
-          <Link to="/contact"><button className='custom-btn'> Link</button></Link>
+          <Link to="/contact"><button className='custom-btn'> Contact Us</button></Link>
 
         </div>
-        <TestimonialSection/>
+        <TestimonialSection />
       </div>
 
 
@@ -124,7 +140,7 @@ const About = () => {
 
       </section>
 
-      
+
       <Footer />
     </div>
   );
