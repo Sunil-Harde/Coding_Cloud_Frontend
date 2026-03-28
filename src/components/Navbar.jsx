@@ -61,10 +61,23 @@ function Navbar() {
       try {
         const response = await fetch(API.COURSES.LIST);
         if (!response.ok) throw new Error('Failed to fetch courses');
-        const data = await response.json();
-        setCourses(data);
+
+        const jsonData = await response.json();
+
+        // ✅ DEFENSIVE CODING: Safely extract the array
+        let dataArray = [];
+        if (Array.isArray(jsonData)) {
+          dataArray = jsonData;
+        } else if (jsonData.results && Array.isArray(jsonData.results)) {
+          dataArray = jsonData.results;
+        } else if (jsonData.data && Array.isArray(jsonData.data)) {
+          dataArray = jsonData.data;
+        }
+
+        setCourses(dataArray);
       } catch (error) {
         console.error("Error fetching courses:", error);
+        setCourses([]); // ✅ Ensure it's ALWAYS an array to prevent .map crashes
       }
     };
     fetchCourses();

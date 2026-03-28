@@ -11,14 +11,27 @@ function Categories() {
     const fetchCategories = async () => {
       try {
         const response = await fetch(`${BASE_URL}${API.CATEGORY.LIST}`);
-        const data = await response.json();
-        setCategories(data);
-        setLoading(false);
+        const jsonData = await response.json();
+        
+        // ✅ DEFENSIVE CODING: Extract the array safely
+        let dataArray = [];
+        if (Array.isArray(jsonData)) {
+            dataArray = jsonData;
+        } else if (jsonData.results && Array.isArray(jsonData.results)) {
+            dataArray = jsonData.results;
+        } else if (jsonData.data && Array.isArray(jsonData.data)) {
+            dataArray = jsonData.data;
+        }
+
+        setCategories(dataArray);
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Error fetching categories:", error);
+        setCategories([]); // Fallback to empty array on error
+      } finally {
         setLoading(false);
       }
     };
+    
     fetchCategories();
   }, []);
 
@@ -31,22 +44,27 @@ function Categories() {
         <div className="animate-pulse text-blue-600 font-bold">Loading...</div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-[90%] gap-10">
-          {categories.map((cat, index) => (
+          {/* ✅ SAFETY CHECK: Ensure categories is an array before mapping */}
+          {(Array.isArray(categories) ? categories : []).map((cat) => (
             <div 
-              key={index}
-              // ✅ FIX: Navigate to specific ID URL
+              key={cat.id} // Use cat.id instead of index for better React performance
               onClick={() => navigate(`/category/${cat.id}`)}
-              className="h-60 shadow-xl bg-white rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-blue-500"
+              className="h-60 shadow-xl bg-white rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-blue-500 group"
             >
               <img 
-                src={`${BASE_URL}${cat.image}`} 
+                // Handle image URLs safely (prepend BASE_URL if it's a relative path)
+                src={cat.image?.startsWith('http') ? cat.image : `${BASE_URL}${cat.image}`} 
                 alt={cat.name} 
-                className="h-20 mb-5 object-contain"
+                className="h-20 mb-5 object-contain group-hover:scale-110 transition-transform duration-300"
                 onError={(e) => { e.target.src = "https://via.placeholder.com/100?text=Icon"; }} 
               />
-              <h1 className="text-lg font-semibold">{cat.name}</h1>
+              <h1 className="text-lg font-semibold text-gray-800">{cat.name}</h1>
             </div>
           ))}
+          
+          {!loading && categories.length === 0 && (
+             <div className="col-span-full text-center text-gray-500 py-10">No categories found.</div>
+          )}
         </div>
       )}
     </div>

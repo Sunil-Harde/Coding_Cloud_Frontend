@@ -12,7 +12,7 @@ export default defineConfig({
         target: 'https://codingcloud.pythonanywhere.com',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ''), 
+        rewrite: (path) => path.replace(/api/, ''), 
       },
       '/media': {
         target: 'https://codingcloud.pythonanywhere.com',
