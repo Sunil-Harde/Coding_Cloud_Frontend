@@ -342,13 +342,13 @@ function Home() {
       </section>
 
       {/* --- TEACHERS --- */}
-      {/* <TeachersSection /> */}
+      <TeachersSection />
 
       {/* --- BLOG --- */}
       <BlogSection />
 
       {/* --- NEWSLETTER --- */}
-      {/* <NewsletterSection /> */}
+      <NewsletterSection />
       <Footer />
     </div>
   );
